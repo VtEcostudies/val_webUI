@@ -25,17 +25,17 @@
     
     <!-- VectorGrid extension for Leaflet (enables vector tiles maps from GBIF) -->
     <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
-    
-    <script type="module" src="leaflet/js/webmap.js"></script>
-    <script type="module" src="leaflet/js/gbifAutoComplete.js"></script>
 
     <script src="leaflet/js/jquery.min.js"></script>
     <script src="leaflet/js/bootstrap.min.js"></script>
     <script src="leaflet/js/jquery-ui.min.js"></script>
     <script src="leaflet/js/tether.min.js"></script>
-    <!-- sliderControl not working yet...
-    <script src="leaflet/js/SliderControl.js"></script
-    -->
+    <script src="leaflet/js/moment.min.js"></script>
+    <!-- sliderControl not working yet... -->
+    <script src="leaflet/js/SliderControl.js"></script>
+    
+    <script type="module" src="leaflet/js/webmap.js"></script>
+    <script type="module" src="leaflet/js/gbifAutoComplete.js"></script>
 
 </head>	
 <body>
@@ -66,8 +66,8 @@
                 <input type="submit" id="getData" value="Get Data"/>
                 <input type="submit" id="zoomCtr" value="Zoom/Center"/>
                 <!-- for testing map data
-                <input type="submit" id="test" value="Test"/>
-                -->
+                <input type="submit" id="testHarness" value="Test"/>
+                <!-- -->
                 <!-- this works on windows/localhost but height is zero on linux/vtatlasoflife.org
                 <div id="mapid" style="width: 100%; height: 100%;"></div>
                 -->
