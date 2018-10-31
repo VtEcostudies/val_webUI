@@ -14,3 +14,4 @@
 .vceHeader {
     padding-top:10px;
 }
+.ui-dialog { z-index: 1000 !important ;}
