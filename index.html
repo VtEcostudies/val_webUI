@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/vce-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 </head>
-
 <body>
 
     <div class="row vceHeader">
@@ -25,16 +25,8 @@
                 window.location.assign("http://vtatlasoflife.org/ala-bie/search?q=" + document.getElementById("bie_search").value);
             }
             </script>
-            <div class="input-group">
-                <input id="bie_search" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
-                    <span class="glyphicon glyphicon-search"></span>
-                </input>
-                <div class="input-group-btn">
-                    <button class="btn btn-search" onclick="searchBIE();">
-                    <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </div> <!-- i-g-btn -->
-            </div> <!-- input-group -->
+            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
+            </input>
         </div> <!-- col -->
     </div> <!-- row -->
 
@@ -43,7 +35,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-7">
             <div class="val_navbar">
-                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit</a>
+                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit (IPT)</a>
                 <div class="val_dropdown">
                   <button class="val_dropbtn">Occurrence Data
                     <i class="fa fa-caret-down"></i>
@@ -106,12 +98,12 @@
     <!-- atlas stats -->
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-3">
-            <h4>Occurrence Records</h4>
+        <div class="col-md-4">
+            <h4>Occurrence Records in Vermont</h4>
             <h2 id="vt_occurrences"><b></b></h2>
         </div>
         <div class="col-md-3">
-            <h4>Species</h4>
+            <h4>Species in Vermont</h4>
             <h2 id="vt_species"><b></b></h2>
         </div>
     </div>
@@ -134,8 +126,9 @@ function loadXMLDoc() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
                 var resJson = JSON.parse(xmlhttp.responseText);
-                document.getElementById("vt_occurrences").innerHTML = resJson[0].count;
-                document.getElementById("vt_species").innerHTML = resJson[0].speciesCount;
+                //var string = numeral(1000).format('0,0');
+                document.getElementById("vt_occurrences").innerHTML = numeral(resJson[0].count).format('0,0');
+                document.getElementById("vt_species").innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }
             else if (xmlhttp.status == 400) {
                alert('There was an error 400');
@@ -165,6 +158,14 @@ document.addEventListener("xhttpEnd", function() {
     var d = document.getElementById("modal_loading");
     d.className = "modal";
     //alert(`got xhttpEnd: ${d.className}`);
+});
+
+window.addEventListener("load", function() {
+    document.getElementById("bie_search").addEventListener("keypress", function(e) {
+        if(e.which == 13){
+            searchBIE();
+        }
+    });
 });
 
 var slideIndex = 0;
