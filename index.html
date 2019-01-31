@@ -4,130 +4,186 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8"/>
     
-    <link rel="SHORTCUT ICON" href="leaflet/img/vce_favicon.ico"/>
+    <link rel="SHORTCUT ICON" href="img/vce_favicon.ico"/>
+    
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/vce-styles.css">
-    <link rel="stylesheet" href="leaflet/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+</head>
 
-    <!-- Leaflet's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-       crossorigin="anonymous"/>
-    
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-      integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-      crossorigin="anonymous"></script>
-
-    <!-- omnivore lets us import file formats other than geoJSON.  eg. KML -->
-    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-    
-    <!-- VectorGrid extension for Leaflet (enables vector tiles maps from GBIF) -->
-    <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
-
-    <script src="leaflet/js/jquery.min.js"></script>
-    <script src="leaflet/js/tether.min.js"></script>
-    <script src="leaflet/js/bootstrap.min.js"></script>
-    <script src="leaflet/js/jquery-ui.min.js"></script>
-    <script src="leaflet/js/moment.min.js"></script>
-    <!-- sliderControl not working yet... -->
-    <script src="leaflet/js/SliderControl.js"></script>
-    <!-- the vce implementation -->
-    <script type="module" src="leaflet/js/webmap.js"></script>
-    <script type="module" src="leaflet/js/gbifAutoComplete.js"></script>
-
-</head>	
 <body>
 
-    <div class="vceHeader">
-      <div class="row">
-        <div class="col-md-4">
+    <div class="row vceHeader">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
             <a href="https://val.vtecostudies.org"><img src="leaflet/img/val_logo_medium.png"/></a>
         </div> <!-- col --> 
-        <div class="col-md-6">
-            <a href="http://vtatlasoflife.org"><h1>Vermont Atlas of Life Data Portal <font size="2">(Beta)</font></h1></a>
-        </div> <!-- col --> 
-      </div> <!-- row -->
-    </div> <!-- container -->
+        <div class="col-md-4">
+            <script>
+            function searchBIE() {
+                window.location.assign("http://vtatlasoflife.org/ala-bie/search?q=" + document.getElementById("bie_search").value);
+            }
+            </script>
+            <div class="input-group">
+                <input id="bie_search" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
+                    <span class="glyphicon glyphicon-search"></span>
+                </input>
+                <div class="input-group-btn">
+                    <button class="btn btn-search" onclick="searchBIE();">
+                    <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div> <!-- i-g-btn -->
+            </div> <!-- input-group -->
+        </div> <!-- col -->
+    </div> <!-- row -->
 
-    <div class="jumbotron" style="padding-top:15px;">
-        <div class="row">
+    <!-- navigation menu -->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <div class="val_navbar">
+                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit</a>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Occurrence Data
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="http://vtatlasoflife.org/ala-hub">Search Occurrence Data</a>
+                    <a href="http://vtatlasoflife.org/explore/your-area?default=true">Explore Your Area</a>
+                    <a href="http://vtatlasoflife.org/biocache-service">Occurrence Data API</a>
+                    <a href="http://vtatlasoflife.org/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
+                    <a href="http://vtatlasoflife.org/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Species Search
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="http://vtatlasoflife.org/ala-bie">Biodiversity Information Explorer (BIE)</a>
+                    <a href="http://vtatlasoflife.org/bie-index">BIE API</a>
+                    <a href="http://vtatlasoflife.org/specieslists">Species Lists</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Data Registry
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="http://vtatlasoflife.org/collectory">Collections browser</a>
+                    <a href="http://vtatlasoflife.org/collectory/datasets">Datasets browser</a>
+                    <a href="http://vtatlasoflife.org/collectory/ws">Data Registry API</a>
+                  </div>
+                </div>
+                <a href="http://vtatlasoflife.org/admin.html">Administration</a>
+            </div> <!-- navbar -->
+        </div> <!-- col -->
+    </div> <!-- row -->
+    <!-- end navigation menu -->
 
-            <div id="vtatlas_webmap" class="col-md-9" style="padding-left:25px;">
-                <label>Species Name: (</label>
-                <input type="radio" id="sciName" name="nameType" value="scientific_name" checked/><label for="sciName">Scientific</label>
-                <input type="radio" id="comName" name="nameType" value="common_name" disabled="true"/><label for="comName">Common</label>
-                )
-                <!-- gbif autocomplete scientific name lookup -->
-                <input type="text" autocomplete="off" id="gbif_autocomplete_name" size=40 list="gbif_autocomplete_list">
-                <datalist id="gbif_autocomplete_list"></datalist>
+    <div class="row slideshow-container">
+        <div class="col-12">
+        <div class="mySlides">
+          <img class="img_slide mx-auto d-block" src="https://vtecostudies.org/wp-content/uploads/2014/10/common-green-darner-1800x700.jpg">
+          <div class="text">Common Green Darner</div>
+        </div>    
+        <div class="mySlides">
+          <img class="img_slide mx-auto d-block" src="https://vtecostudies.org/wp-content/uploads/2019/01/spruce-grouse-1800x700.jpg">
+          <div class="text">Spruce Grouse</div>
+        </div>        
+        <div class="mySlides">
+          <img class="img_slide mx-auto d-block" src="https://vtecostudies.org/wp-content/uploads/2018/12/Bombus-terricola-1800x700.jpg">
+          <div class="text">Bombus Terricola</div>
+        </div>        
+        <div class="mySlides">
+          <img class="img_slide mx-auto d-block" src="https://vtecostudies.org/wp-content/uploads/2014/06/Pine-Grosbeak-1800x700.jpg">
+          <div class="text">Pine Grosbeak</div>
+        </div>
+        </div>
+    </div>
 
-                <input type="submit" id="getData" value="Get Data"/>
-                <input type="submit" id="zoomCtr" value="Zoom/Center"/>
-                <!-- for testing map data -->
-                <input type="submit" id="testHarness" value="Test"/>
-                <!-- -->
-                <!-- this works on windows/localhost but height is zero on linux/vtatlasoflife.org
-                <div id="mapid" style="width: 100%; height: 100%;"></div>
-                -->
-                <div id="mapid" style="width: 100%; height: 600px;"></div>
-                
-                <label id="zoomLabel" class="small vceOutline"></label>
-                <label id="apiUrlLabel" class="small vceOutline"></label>
-                <label id="jsonResults" class="small vceOutline"></label>
-            </div> <!-- col -->
-        
-            <div id="vtatlas_datalinks" class="col-md-3">
-                <h3><u>Search VT Data</u></h3>
-                <div id="padded_separator" style="padding-top:20px;"></div>
-                <h4>Occurrence Data</h4>
-                <p> 
-                  <ul>
-                  <li><a href="http://ipt.vtecostudies.org/ipt-2.3.5/">VAL Integrated Publishing Toolkit</a></li>
-                  <li><a href="/ala-hub">Occurrence Data Search</a></li>              
-                  <li><a href="/ala-hub/explore/your-area?default=true">Occurrences: Explore Your Area</a></li>
-                  <li><a href="/biocache-service">Occurrrence Data API</a></li>
-                  <!--<li><a href="http://54.200.225.59/">Leaflet - BISON Occurrence Data</a></li>-->
-                  <li><a href="/leaflet/bison_leaflet.html">Leaflet - BISON Occurrence Data</a></li>
-                  <!--<li><a href="/leaflet/val_leaflet.html">Leaflet - VAL Occurrence Data</a></li>-->
-                  </ul>	
-                </p>
-                <h4>Species lists</h4>
-                <p>
-                    <ul>
-                    <li><a href="/specieslists">Species lists</a> - upload and view lists</li>
-                    </ul>
-                </p>
-                <h4>Species Search</h4>
-                <p>
-                    <ul>
-                        <li><a href="/ala-bie">BIE UI</a> (taxonomy search page)</li>
-                        <li><a href="/bie-index">BIE API</a> (taxonomy search API)</li>
-                    </ul>
-                </p>
-                <h4>Data Registry</h4>
-                <p>
-                    <ul>
-                    <li><a href="/collectory">Collections browser</a></li>
-                    <li><a href="/collectory/datasets">Datasets browser</a></li>
-                    <li><a href="/collectory/ws">Data Registry API</a></li>
-                    </ul>
-                </p>
-                <h4>Administration</h4>
-                <p>
-                    <ul>
-                        <li><a href="admin.html">Administration Page</a></li>
-                    </ul>
-                </p>
-                <p>
-                    <font size="1">
-                        &copy; <a href="https://val.vtecostudies.org">Vermont Atlas of Life 2018</a>
-                    </font>
-                </p>
-            </div> <!-- /col -->
-        </div> <!-- /row -->
-    </div> <!-- /container -->     
-    <!-- <div id="dialog" title="Test Occurrence Data"></div> -->
+    <!-- atlas stats -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <h4>Occurrence Records</h4>
+            <h2 id="vt_occurrences"><b></b></h2>
+        </div>
+        <div class="col-md-3">
+            <h4>Species</h4>
+            <h2 id="vt_species"><b></b></h2>
+        </div>
+    </div>
+    <!-- end atlas stats -->
+    
+    <div id="modal_loading" class="modal"><!-- waiting for load overlay --></div>
+
+<script type="text/javascript">
+
+var begEvent = new Event('xhttpBeg');
+var endEvent = new Event('xhttpEnd');
+
+function loadXMLDoc() {
+    var xmlhttp = new XMLHttpRequest();
+    var reqVTCounts = "http://vtatlasoflife.org/biocache-service/explore/groups?q=*&wkt=POLYGON((-73.3427%2045.0104,-73.1827%2045.0134,-72.7432%2045.0153,-72.6100%2045.0134,-72.5551%2045.0075,-72.4562%2045.0090,-72.3113%2045.0037,-72.0964%2045.0066,-71.9131%2045.0070,-71.5636%2045.0138,-71.5059%2045.0138,-71.5294%2044.9748,-71.4949%2044.9123,-71.5567%2044.8296,-71.6281%2044.7506,-71.6061%2044.7077,-71.5677%2044.6481,-71.5388%2044.5817,-71.6006%2044.5533,-71.5746%2044.5308,-71.5883%2044.4955,-71.6556%2044.4504,-71.7146%2044.4093,-71.7957%2044.3975,-71.8163%2044.3563,-71.8698%2044.3327,-71.9138%2044.3484,-71.9865%2044.3386,-72.0346%2044.3052,-72.0428%2044.2432,-72.0662%2044.1930,-72.0360%2044.1349,-72.0580%2044.0698,-72.1101%2044.0017,-72.0937%2043.9671,-72.1252%2043.9088,-72.1733%2043.8682,-72.1994%2043.7899,-72.1994%2043.7899,-72.2392%2043.7384,-72.3010%2043.7056,-72.3271%2043.6391,-72.3436%2043.5893,-72.3793%2043.5814,-72.3972%2043.5027,-72.3807%2043.4988,-72.3999%2043.4150,-72.4123%2043.3601,-72.3903%2043.3591,-72.4081%2043.3282,-72.3999%2043.2762,-72.4370%2043.2342,-72.4493%2043.1852,-72.4480%2043.1311,-72.4507%2043.0679,-72.4438%2043.0067,-72.4699%2042.9846,-72.5276%2042.9645,-72.5331%2042.8951,-72.5633%2042.8639,-72.5098%2042.7863,-72.5166%2042.7652,-72.4741%2042.7541,-72.4590%2042.7289,-73.2761%2042.7465,-73.2912%2042.8025,-73.2850%2042.8357,-73.2678%2043.0679,-73.2472%2043.5022,-73.2561%2043.5615,-73.2939%2043.5774,-73.3049%2043.6271,-73.3557%2043.6271,-73.3976%2043.5675,-73.4326%2043.5883,-73.4285%2043.6351,-73.4079%2043.6684,-73.3907%2043.7031,-73.3516%2043.7701,-73.3928%2043.8207,-73.3832%2043.8533,-73.3969%2043.9033,-73.4086%2043.9365,-73.4134%2043.9795,-73.4381%2044.0427,-73.4141%2044.1058,-73.3928%2044.1921,-73.3427%2044.2393,-73.3186%2044.2467,-73.3406%2044.3484,-73.3385%2044.3690,-73.2946%2044.4328,-73.3296%2044.5367,-73.3832%2044.5919,-73.3770%2044.6569,-73.3681%2044.7477,-73.3317%2044.7857,-73.3324%2044.8043,-73.3818%2044.8398,-73.3564%2044.9040,-73.3392%2044.9181,-73.3372%2044.9643,-73.3537%2044.9799,-73.3447%2045.0046,-73.3447%2045.0109,-73.3426%2045.0104,-73.3427%2045.0104))";
+    
+    document.dispatchEvent(begEvent);
+    
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+            if (xmlhttp.status == 200) {
+                var resJson = JSON.parse(xmlhttp.responseText);
+                document.getElementById("vt_occurrences").innerHTML = resJson[0].count;
+                document.getElementById("vt_species").innerHTML = resJson[0].speciesCount;
+            }
+            else if (xmlhttp.status == 400) {
+               alert('There was an error 400');
+            }
+            else {
+                alert(`something else other than 200 was returned: ${xmlhttp.status}`);
+            }
+            document.dispatchEvent(endEvent);
+        }
+    };
+
+    xmlhttp.open("GET", reqVTCounts, true);
+    xmlhttp.send();
+}
+
+document.addEventListener("xhttpBeg", function() {
+    //document.addClass("loading");
+    //alert("got xhttpBeg");
+    var d = document.getElementById("modal_loading");
+    d.className = "modal loading";
+    //alert(`got xhttpBeg: ${d.className}`);
+});
+
+document.addEventListener("xhttpEnd", function() {
+    //document.removeClass("loading");
+    //alert("got xhttpEnd");
+    var d = document.getElementById("modal_loading");
+    d.className = "modal";
+    //alert(`got xhttpEnd: ${d.className}`);
+});
+
+var slideIndex = 0;
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1;}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Change image every n/1000 seconds
+}
+
+loadXMLDoc();
+showSlides();
+</script>
+
 </body>
 </html>
