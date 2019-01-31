@@ -1,2 +1,4 @@
 leaflet/
+leaflet_plugins/
 *.komodoproject
+*.komodotools
