@@ -1,18 +1,70 @@
-<div class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="brand" href="http://living-atlas.org">Living Atlas demo</a>
-            <div class="simple-nav-list pull-right">
-                <ul class="list-inline">
-                    <li><a href="/ala-bie">Species search</a></li>
-                    <li><a href="/specieslists">Lists</a></li>
-                    <li><a href="/collectory">Collections</a></li>
-                    <li><a href="/collectory/datasets">Datasets</a></li>
-                    <li><a href="/ala-hub">Occurrence records</a></li>
-                    <li><a href="/ala-hub#tab_advanceSearch">Advanced search</a></li>
-                    <li><a href="/ala-hub#tab_spatialSearch">Spatial search</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-    </div><!--/.navbar-inner -->
-</div><!--/.navbar -->
+    <div class="row vceHeader">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <a href="https://val.vtecostudies.org"><img src="val_www/leaflet/img/val_logo_medium.png"/></a>
+        </div> <!-- col --> 
+        <div class="col-md-4">
+            <script>
+            function searchBIE() {
+                window.location.assign("/ala-bie/search?q=" + document.getElementById("bie_search").value);
+            }
+            </script>
+            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
+            </input>
+        </div> <!-- col -->
+    </div> <!-- row -->
+
+    <!-- navigation menu -->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <div class="val_navbar">
+                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit (IPT)</a>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Occurrence Data
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="/ala-hub">Search Occurrence Data</a>
+                    <a href="/ala-hub/explore/your-area?default=true">Explore Your Area</a>
+                    <a href="/biocache-service">Occurrence Data API</a>
+                    <a href="val_www/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
+                    <a href="val_www/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Species Search
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="/ala-bie">Biodiversity Information Explorer (BIE)</a>
+                    <a href="/bie-index">BIE API</a>
+                    <a href="/specieslists">Species Lists</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Data Registry
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="/collectory">Collections browser</a>
+                    <a href="/collectory/datasets">Datasets browser</a>
+                    <a href="/collectory/ws">Data Registry API</a>
+                  </div>
+                </div>
+                <a href="/admin.html">Administration</a>
+            </div> <!-- navbar -->
+        </div> <!-- col -->
+    </div> <!-- row -->
+    <!-- end navigation menu -->
+    <script>
+    
+    window.addEventListener("load", function() {
+        document.getElementById("bie_search").addEventListener("keypress", function(e) {
+            if(e.which == 13){
+                searchBIE();
+            }
+        });
+    });
+    
+    </script>
