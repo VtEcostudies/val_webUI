@@ -4,11 +4,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8"/>
     
-    <link rel="SHORTCUT ICON" href="val_www/img/vce_favicon.ico"/>
+    <link rel="SHORTCUT ICON" href="/val_www/img/vce_favicon.ico"/>
     
-	<link rel="stylesheet" href="val_www/css/bootstrap.css">
-	<link rel="stylesheet" href="val_www/css/bootstrap-theme.css">
-	<link rel="stylesheet" href="val_www/css/vce-styles.css">
+	<link rel="stylesheet" href="/val_www/css/bootstrap.css">
+	<link rel="stylesheet" href="/val_www/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="/val_www/css/vce-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 </head>
@@ -17,7 +17,7 @@
     <div class="row vceHeader">
         <div class="col-md-2"></div>
         <div class="col-md-3">
-            <a href="https://val.vtecostudies.org"><img src="val_www/leaflet/img/val_logo_medium.png"/></a>
+            <a href="https://val.vtecostudies.org"><img src="/val_www/leaflet/img/val_logo_medium.png"/></a>
         </div> <!-- col --> 
         <div class="col-md-4">
             <script>
@@ -44,8 +44,8 @@
                     <a href="/ala-hub">Search Occurrence Data</a>
                     <a href="/ala-hub/explore/your-area?default=true">Explore Your Area</a>
                     <a href="/biocache-service">Occurrence Data API</a>
-                    <a href="val_www/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
-                    <a href="val_www/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
+                    <a href="/val_www/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
+                    <a href="/val_www/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
                   </div>
                 </div>
                 <div class="val_dropdown">
@@ -157,16 +157,12 @@ function loadXMLDoc() {
 }
 
 document.addEventListener("xhttpBeg", function() {
-    //document.addClass("loading");
-    //alert("got xhttpBeg");
     var d = document.getElementById("modal_loading");
     d.className = "modal loading";
     //alert(`got xhttpBeg: ${d.className}`);
 });
 
 document.addEventListener("xhttpEnd", function() {
-    //document.removeClass("loading");
-    //alert("got xhttpEnd");
     var d = document.getElementById("modal_loading");
     d.className = "modal";
     //alert(`got xhttpEnd: ${d.className}`);
