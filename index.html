@@ -170,13 +170,13 @@ function loadXMLDoc() {
 
 document.addEventListener("xhttpBeg", function() {
     var d = document.getElementById("modal_vce_loading");
-    d.className = "modal vce_loading";
+    d.className = "vce_modal vce_loading";
     //alert(`got xhttpBeg: ${d.className}`);
 });
 
 document.addEventListener("xhttpEnd", function() {
     var d = document.getElementById("modal_vce_loading");
-    d.className = "modal";
+    d.className = "vce_modal";
     //alert(`got xhttpEnd: ${d.className}`);
 });
 

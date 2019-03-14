@@ -1,0 +1,68 @@
+    <!-- navigation menu -->
+    <div class="row vceHeader">
+        <!-- <div class="col-md-2"></div> -->
+        <div class="col-md-3">
+            <a href="https://val.vtecostudies.org"><img src="/val_www/leaflet/img/val_logo_medium.png"/></a>
+        </div> <!-- col --> 
+        <div class="col-md-4">
+            <script>
+            function searchBIE() {
+                window.location.assign("/ala-bie/search?q=" + document.getElementById("bie_search").value);
+            }
+            
+            window.addEventListener("load", function() {
+                document.getElementById("bie_search").addEventListener("keypress", function(e) {
+                    if(e.which == 13){
+                        searchBIE();
+                    }
+                });
+            });
+
+            </script>
+            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
+            </input>
+        </div> <!-- col -->
+    </div> <!-- row -->
+
+    <div class="row">
+        <!-- <div class="col-md-2"></div> -->
+        <div class="col-md-7">
+            <div class="val_navbar">
+                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit (IPT)</a>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Occurrence Data
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="vtatlasoflife.org/ala-hub">Search Occurrence Data</a>
+                    <a href="vtatlasoflife.org/ala-hub/explore/your-area?default=true">Explore Your Area</a>
+                    <a href="vtatlasoflife.org/biocache-service">Occurrence Data API</a>
+                    <a href="vtatlasoflife.org/val_www/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
+                    <a href="vtatlasoflife.org/val_www/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Species Search
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="vtatlasoflife.org/ala-bie">Biodiversity Information Explorer (BIE)</a>
+                    <a href="vtatlasoflife.org/bie-index">BIE API</a>
+                    <a href="vtatlasoflife.org/specieslists">Species Lists</a>
+                  </div>
+                </div>
+                <div class="val_dropdown">
+                  <button class="val_dropbtn">Data Registry
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="val_dropdown-content">
+                    <a href="vtatlasoflife.org/collectory">Collections browser</a>
+                    <a href="vtatlasoflife.org/collectory/datasets">Datasets browser</a>
+                    <a href="vtatlasoflife.org/collectory/ws">Data Registry API</a>
+                  </div>
+                </div>
+                <a href="vtatlasoflife.org/admin.html">Administration</a>
+            </div> <!-- navbar -->
+        </div> <!-- col -->
+    </div> <!-- row -->
+    <!-- end navigation menu -->
