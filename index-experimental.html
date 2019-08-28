@@ -33,7 +33,22 @@
 
 <body>
 
-    <div class="row">
+    <div class="row vceHeader">
+        
+        <div class="col-md-3">
+            <a href="https://val.vtecostudies.org"><img src="/val_www/leaflet/img/val_logo_medium.png"/></a>
+        </div> <!-- col --> 
+        <div class="col-md-4">
+            <script>
+                /* load the BIE search page with user search value */
+            function searchBIE() {
+                window.location.assign("http://bie.vtecostudies.org/search?q=" + document.getElementById("bie_search").value);
+            }
+            </script>
+            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
+            </input>
+        </div> <!-- col -->
+
         <!-- atlas stats -->
         <div class="col-md-2">
             <h4>Occurrences in VT</h4>
@@ -44,6 +59,7 @@
             <h4 id="vt_species"><b></b></h4>
         </div>
         <!-- end atlas stats -->
+    
     </div> <!-- row -->
 
     <div class="row">
