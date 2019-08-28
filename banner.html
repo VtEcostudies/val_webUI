@@ -1,68 +1,18 @@
-    <!-- navigation menu -->
-    <div class="row vceHeader">
-        <!-- <div class="col-md-2"></div> -->
-        <div class="col-md-3">
-            <a href="https://val.vtecostudies.org"><img src="http://vtatlasoflife.org/val_www/leaflet/img/val_logo_medium.png"/></a>
-        </div> <!-- col --> 
-        <div class="col-md-4">
-            <script>
-            function searchBIE() {
-                window.location.assign("http://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
-            }
-            
-            window.addEventListener("load", function() {
-                document.getElementById("bie_search").addEventListener("keypress", function(e) {
-                    if(e.which == 13){
-                        searchBIE();
-                    }
-                });
-            });
-
-            </script>
-            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
-            </input>
-        </div> <!-- col -->
-    </div> <!-- row -->
-
-    <div class="row">
-        <!-- <div class="col-md-2"></div> -->
-        <div class="col-md-7">
-            <div class="val_navbar">
-                <a href="http://ipt.vtecostudies.org/ipt-2.3.5/">Publishing Toolkit (IPT)</a>
-                <div class="val_dropdown">
-                  <button class="val_dropbtn">Occurrence Data
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="val_dropdown-content">
-                    <a href="http://biocache.vtatlasoflife.org">Search Occurrence Data</a>
-                    <a href="http://biocache.vtatlasoflife.org/explore/your-area?default=true">Explore Your Area</a>
-                    <a href="http://biocache-ws.vtatlasoflife.org">Occurrence Data API</a>
-                    <a href="http://vtatlasoflife.org/val_www/leaflet/val_leaflet.html">VAL Occurrence Data Leaflet Map</a>
-                    <a href="http://vtatlasoflife.org/val_www/leaflet/bison_leaflet.html">BISON Occurrence Data Leaflet Map</a>
-                  </div>
-                </div>
-                <div class="val_dropdown">
-                  <button class="val_dropbtn">Species Search
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="val_dropdown-content">
-                    <a href="http://bie.vtatlasoflife.org">Biodiversity Information Explorer (BIE)</a>
-                    <a href=http://bie-ws.vtatlasoflife.org">BIE API</a>
-                    <a href="http://lists.vtatlasoflife.org">Species Lists</a>
-                  </div>
-                </div>
-                <div class="val_dropdown">
-                  <button class="val_dropbtn">Data Registry
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="val_dropdown-content">
-                    <a href="http://collectory.vtatlasoflife.org">Collections browser</a>
-                    <a href="http://collectory.vtatlasoflife.org/datasets">Datasets browser</a>
-                    <a href="http://collectory.vtatlasoflife.org/ws">Data Registry API</a>
-                  </div>
-                </div>
-                <a href="/admin.html">Administration</a>
-            </div> <!-- navbar -->
-        </div> <!-- col -->
-    </div> <!-- row -->
-    <!-- end navigation menu -->
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="http://vtatlasoflife.org">Vermont Atlas of Life</a>
+            <div class="simple-nav-list pull-right">
+                <ul class="list-inline">
+                    <li><a href="http://bie.vtatlasoflife.org">Species search</a></li>
+                    <li><a href="http://lists.vtatlasoflife.org">Lists</a></li>
+                    <li><a href="http://collectory.vtatlasoflife.org">Collections</a></li>
+                    <li><a href="http://collectory.vtatlasoflife.org/datasets">Datasets</a></li>
+                    <li><a href="http://biocache.vtatlasoflife.org">Occurrence records</a></li>
+                    <li><a href="http://biocache.vtatlasoflife.org#tab_advanceSearch">Advanced search</a></li>
+                    <li><a href="http://biocache.vtatlasoflife.org#tab_spatialSearch">Spatial search</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </div><!--/.navbar-inner -->
+</div><!--/.navbar -->
