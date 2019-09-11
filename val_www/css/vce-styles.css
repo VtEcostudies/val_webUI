@@ -63,11 +63,14 @@
 .val_navbar {
   overflow: hidden;
   border-color: #E7E7E7;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  background: white;
+  border: none;
 }
 
 /* Links inside the val_navbar */
 .val_navbar a {
-  float: right;
   font-size: 16px;
   font-weight: 500;
   color: black;

@@ -12,7 +12,7 @@ function showSlides() {
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1;}
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every n/1000 seconds
+    //setTimeout(showSlides, 5000); // Change image every n/1000 seconds
 }
 
 function loadXMLDoc() {
@@ -53,8 +53,14 @@ function loadXMLDoc() {
     xmlhttp.send();
 }
 
+function searchBIE() {
+	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
+}
+
 window.onload = function() {
 
+    console.log('window.onload()');
+    
     document.addEventListener("xhttpBeg", function() {
         var d = document.getElementById("modal_vce_loading");
         d.className = "vce_modal vce_loading";
@@ -67,15 +73,23 @@ window.onload = function() {
         //alert(`got xhttpEnd: ${d.className}`);
     });
     
-    document.addEventListener("load", function() {
+    if (document.getElementById("bie_search")) {
         document.getElementById("bie_search").addEventListener("keypress", function(e) {
             if(e.which == 13){
                 searchBIE();
             }
         });
-    });
+    }
     
-    loadXMLDoc();
-    showSlides();
+    if (document.getElementById("slideRow")) {
+        document.getElementById("slideRow").addEventListener("click", function() {
+            showSlides();
+        });
+        showSlides();
+    }
+    
+    if (document.getElementById("bie_search")) {
+        loadXMLDoc();
+    }
 
 };

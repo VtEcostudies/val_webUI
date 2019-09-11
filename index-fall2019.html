@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="/val_www/css/bootstrap.css">
 	<link rel="stylesheet" href="/val_www/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="/val_www/css/vce-styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
-    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 </head>
 <body>
 
@@ -156,7 +156,7 @@ function loadXMLDoc() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
                 var resJson = JSON.parse(xmlhttp.responseText);
-                console.log(`bioache-service/explor/groups result: ${resJson}`);
+                console.log(`${reqHost}/${reqRoute} result: ${resJson}`);
                 elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
                 elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }/*

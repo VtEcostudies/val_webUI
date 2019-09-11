@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<script src="js/bootstrap.js"></script>
     <style>
         .code { font-family: "Courier New"; }
     </style>
-</head>	
+</head>
 <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Vermont Atlas of LifeLiving Atlas dem</h1>
+        <h1>Vermont Atlas of Life</h1>
         <p>This is a landing page with links through to the components now installed on this server.
         <br/>
-           This demo was installed using 
+           This demo was installed using
            <a href="http://www.ansible.com">ansible</a> scripts that are available
            <a href="https://github.com/AtlasOfLivingAustralia/ala-install">here</a>.
         </p>
@@ -28,17 +28,17 @@
       <div class="row">
         <div id="occurrence-store" class="col-md-4">
           <h2>Occurrence store</h2>
-          <p> 
-          	The occurrence store should now be setup. This application consists of 
+          <p>
+          	The occurrence store should now be setup. This application consists of
           	3 web applications now running in Tomcat:
           	<ul>
-              <li><a href="/ala-hub">Occurrence search</a> - Reskinnable front end UI</li>              
-              <li><a href="/ala-hub/explore/your-area?default=true">Explore your area</a>  - Reskinnable front end UI</li>
-          	  <li><a href="/biocache-service">Web services</a> - the JSON/WMS webservices</li>
-          	  <li><a href="http://living-atlas.org:8983/solr">Apache SOLR</a>
+              <li><a href="http://biocache.vtatlasoflife.org">Occurrence search</a> - Reskinnable front end UI</li>
+              <li><a href="http://biocache.vtatlasoflife.org/explore/your-area?default=true">Explore your area</a>  - Reskinnable front end UI</li>
+          	  <li><a href="http://biocache-ws.vtatlasoflife.org">Web services</a> - the JSON/WMS webservices</li>
+                  <li><a href="http://http://index.vtatlasoflife.org:8983">Apache SOLR</a>
                   - the index used for searching
                   <smaller>(note port 8983 needs to be open for this link to work) </smaller></li>
-          	</ul>	
+          	</ul>
 			There is also a command line tool now installed that can be started with the command "biocache".
 			This tool can be used for loading data and running processes across the data.
           </p>
@@ -60,10 +60,10 @@
               This is an application for editing metadata
           	for collections, institutions and data resources.
       		<ul>
-				<li><a href="/collectory">Collections browser</a></li>
-                <li><a href="/collectory/datasets">Datasets browser</a></li>
-				<li><a href="/collectory/ws">Web services</a></li>
-				<li><a href="/collectory/admin">Admin interface</a></li>
+				<li><a href="http://collectory.vtatlasoflife.org">Collections browser</a></li>
+                <li><a href="http://collectory.vtatlasoflife.org/datasets">Datasets browser</a></li>
+				<li><a href="http://collectory.vtatlasoflife.org/ws">Web services</a></li>
+				<li><a href="http://collectory.vtatlasoflife.org/admin">Admin interface</a></li>
 			</ul>
            </p>
           <h4>Further information</h4>
@@ -81,18 +81,18 @@
               The applications use Bootstrap 3 for layout and styling.
               For more information on Bootstrap see the documentation.
               The location of the CSS/JS bootstrap files is
-              <span class="code">/srv/living-atlas.org/www/ </span>
+              <span class="code">/srv/vtatlasoflife.org/www/ </span>
                on this machine. <p>
           </p>
           <h2>Styling these apps</h2>
           <p>
               These applications are use a banner, footer and head html block that you can customise.
           <ul>
-            <li><a class="code" href="http://living-atlas.org/banner.html">banner.html</a> - the top section added to all pages. Typically a navigation menu</li>
-            <li><a class="code" href="http://living-atlas.org/footer.html">footer.html</a> - the bottom section added to all pages. Typically a navigation menu</li>
-            <li><a class="code" href="http://living-atlas.org/head.html">head.html</a> - a block of html that is added to the <span class="code">&lt;head/&gt;</span> section added to all pages.  This could include references to custom CSS.</li>
+            <li><a class="code" href="http://vtatlasoflife.org/banner.html">banner.html</a> - the top section added to all pages. Typically a navigation menu</li>
+            <li><a class="code" href="http://vtatlasoflife.org/footer.html">footer.html</a> - the bottom section added to all pages. Typically a navigation menu</li>
+            <li><a class="code" href="http://vtatlasoflife.org/head.html">head.html</a> - a block of html that is added to the <span class="code">&lt;head/&gt;</span> section added to all pages.  This could include references to custom CSS.</li>
           </ul>
-            <p> The location of these files is <span class="code">/srv/living-atlas.org/www/</span> on this machine. <p>
+            <p> The location of these files is <span class="code">/srv/vtatlasoflife.org/www/</span> on this machine. <p>
         </div>
       </div>
       <div class="row">
@@ -101,7 +101,7 @@
               <p>
                   The Species lists component consists of 1 web applications now running in Tomcat on this server:
                   <ul>
-                      <li><a href="/specieslists">Species lists</a> - Reskinnable front end UI</li>
+                      <li><a href="http://lists.vtatlasoflife.org">Species lists</a> - Reskinnable front end UI</li>
                   </ul>
               </p>
           </div>
@@ -110,8 +110,8 @@
               <p>
                   The Species pages (BIE) consists of 2 web applications now running in Tomcat on this server:
                   <ul>
-                      <li><a href="/ala-bie">BIE UI</a> - Reskinnable front end UI</li>
-                      <li><a href="/bie-index">BIE web services</a>  - taxonomy search services</li>
+                      <li><a href="http://bie.vtatlasoflife.org">BIE UI</a> - Reskinnable front end UI</li>
+                      <li><a href="http://bie-ws.vtatlasoflife.org">BIE web services</a>  - taxonomy search services</li>
                   </ul>
               </p>
           </div>
@@ -132,9 +132,9 @@
         <p style="padding:20px;">
         &copy; <a href="https://www.ala.org.au">Atlas of Living Australia 2018</a>
 
-        - Machine setup up on 2018-09-11. Running
-           Ubuntu 
-           16.04 
+        - Machine setup up on 2019-08-28. Running
+           Ubuntu
+           18.04
       </p>
       </footer>
     </div> <!-- /container -->
