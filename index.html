@@ -4,28 +4,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8"/>
 
+    <link rel="SHORTCUT ICON" href="https://vtatlasoflife.org/val_www/img/vce_favicon.ico"/>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
-
-    <link rel="SHORTCUT ICON" href="https://vtatlasoflife.org/val_www/img/vce_favicon.ico"/>
-
-    <link rel="stylesheet" href="https://vtatlasoflife.org/val_www/css/bootstrap.css">
-
-    <link rel="stylesheet" href="https://vtatlasoflife.org/val_www/css/vce-styles.css">
+    <link rel="stylesheet" href="css/ala-styles.css">
+    <link rel="stylesheet" href="val_www/css/vce-styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jquery.js must come before bootstrap.js -->
 	<script src="js/bootstrap.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="js/vce_custom.js"></script>
     
     <script>
     $(function(){
-      $("#includeBanner").load("banner-vce-alt.html");
+      $("#includeHeader").load("header-vce.html");
+      $("#includeNavbar").load("navbar-vce.html");
+      //$("#includeSlides").load("slides-vce.html"); //couldn't make this work
     });
     </script>
 
@@ -33,42 +32,15 @@
 
 <body>
 
-    <div class="row vceHeader">
-        
-        <div class="col-md-3">
-            <a href="https://val.vtecostudies.org"><img src="/val_www/leaflet/img/val_logo_medium.png"/></a>
-        </div> <!-- col --> 
-        <div class="col-md-4">
-            <script>
-                /* load the BIE search page with user search value */
-            function searchBIE() {
-                window.location.assign("https://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
-            }
-            </script>
-            <input id="bie_search" onclick="/*searchBIE();*/" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
-            </input>
-        </div> <!-- col -->
-
-        <!-- atlas stats -->
-        <div class="col-md-2">
-            <h4>Occurrences in VT</h4>
-            <h4 id="vt_occurrences"><b></b></h4>
-        </div>
-        <div class="col-md-2">
-            <h4>Species in VT</h4>
-            <h4 id="vt_species"><b></b></h4>
-        </div>
-        <!-- end atlas stats -->
+    <div id="includeHeader"></div>
     
-    </div> <!-- row -->
-
     <div class="row">
         <div class="col-12">
-        <div id="includeBanner"></div>
+            <div id="includeNavbar"></div>
         </div>
     </div> <!-- row -->
 
-    <div class="row slideshow-container">
+    <div id="slideRow" class="row slideshow-container">
         <div class="col-12">
             <div class="mySlides">
               <img class="img_slide mx-auto d-block" src="https://vtecostudies.org/wp-content/uploads/2014/10/common-green-darner-1800x700.jpg">

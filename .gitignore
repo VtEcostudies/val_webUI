@@ -2,3 +2,4 @@ leaflet/
 leaflet_plugins/
 *.komodoproject
 *.komodotools
+gbif-split/
