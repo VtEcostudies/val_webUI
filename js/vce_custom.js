@@ -24,14 +24,14 @@ function loadXMLDoc() {
     var elemSpecies = document.getElementById("vt_species");
 
     if (reqHost == "http://localhost") {reqHost = "http://beta.vtatlasoflife.org";}
-    
+
     document.dispatchEvent(begEvent);
-    
+
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
                 var resJson = JSON.parse(xmlhttp.responseText);
-                console.log(`bioache-service/explor/groups result: ${resJson}`);
+                console.log(`bioache-service/explore/groups result: ${resJson}`);
                 elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
                 elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }/*
@@ -60,19 +60,19 @@ function searchBIE() {
 window.onload = function() {
 
     console.log('window.onload()');
-    
+
     document.addEventListener("xhttpBeg", function() {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal vce_loading";
         //alert(`got xhttpBeg: ${d.className}`);
     });
-    
+
     document.addEventListener("xhttpEnd", function() {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal";
         //alert(`got xhttpEnd: ${d.className}`);
     });
-    
+
     if (document.getElementById("bie_search")) {
         document.getElementById("bie_search").addEventListener("keypress", function(e) {
             if(e.which == 13){
@@ -80,14 +80,14 @@ window.onload = function() {
             }
         });
     }
-    
+
     if (document.getElementById("slideRow")) {
         document.getElementById("slideRow").addEventListener("click", function() {
             showSlides();
         });
         showSlides();
     }
-    
+
     if (document.getElementById("bie_search")) {
         loadXMLDoc();
     }
