@@ -75,14 +75,6 @@ window.onload = function() {
         console.log(`got xhttpEnd: ${d.className}`);
     });
 
-    if (document.getElementById("bie_search")) {
-        document.getElementById("bie_search").addEventListener("keypress", function(e) {
-            if(e.which == 13){
-                searchBIE();
-            }
-        });
-    }
-
     if (document.getElementById("slideRow")) {
         document.getElementById("slideRow").addEventListener("click", function() {
             showSlides();
@@ -90,3 +82,15 @@ window.onload = function() {
         showSlides();
     }
 };
+
+function addHeaderListeners() {
+  
+      if (document.getElementById("bie_search")) {
+          document.getElementById("bie_search").addEventListener("keypress", function(e) {
+              if(e.which == 13){
+                  searchBIE();
+              }
+          });
+      }
+
+}
