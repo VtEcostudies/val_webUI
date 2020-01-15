@@ -31,7 +31,7 @@ function loadXMLDoc() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
                 var resJson = JSON.parse(xmlhttp.responseText);
-                console.log(`bioache-service/explore/groups result: ${resJson}`);
+                //console.log('bioache-service/explore/groups result:'); console.dir(resJson);
                 elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
                 elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }/*
@@ -49,6 +49,8 @@ function loadXMLDoc() {
         }
     };
 
+    //console.log('AJAX GET request:', reqHost+reqRoute+reqQuery);
+
     xmlhttp.open("GET", reqHost+reqRoute+reqQuery, true);
     xmlhttp.send();
 }
@@ -64,13 +66,13 @@ window.onload = function() {
     document.addEventListener("xhttpBeg", function() {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal vce_loading";
-        //alert(`got xhttpBeg: ${d.className}`);
+        console.log(`got xhttpBeg: ${d.className}`);
     });
 
     document.addEventListener("xhttpEnd", function() {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal";
-        //alert(`got xhttpEnd: ${d.className}`);
+        console.log(`got xhttpEnd: ${d.className}`);
     });
 
     if (document.getElementById("bie_search")) {
@@ -87,9 +89,4 @@ window.onload = function() {
         });
         showSlides();
     }
-
-    if (document.getElementById("bie_search")) {
-        loadXMLDoc();
-    }
-
 };

@@ -1,97 +1,65 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+
+    <link rel="SHORTCUT ICON" href="https://vtatlasoflife.org/val_www/img/vce_favicon.ico"/>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/ala-styles.css">
+    <link rel="stylesheet" href="val_www/css/vce-styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jquery.js must come before bootstrap.js -->
 	<script src="js/bootstrap.js"></script>
- 	<style>
-            .code { font-family: "Courier New"; }
-	</style>
-	<link rel="stylesheet" href="css/ala-styles.css">
-</head>	
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+    <script src="js/vce_custom.js"></script>
+
+    <script>
+    $(function(){
+      $("#includeHeader").load("header-vce.html");
+      $("#includeNavbar").load("navbar-vce.html");
+      //$("#includeSlides").load("slides-vce.html"); //couldn't make this work
+    });
+    </script>
+</head>
+
 <body>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h2>Vermont Atlas of Life Data Explorer</h2>
-       </div>
-    </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div id="occurrence-store" class="col-md-4">
-          <h2>Occurrence Store Admin</h2>
-          <p> 
-          	  <li><a href="http://vtatlasoflife.org:8983/solr">VAL Apache SOLR Admin</a>
-                  - the index used for searching
-                  <small>(note port 8983 needs to be open for this link to work) </small></li>
-          	</ul>	
-			There is also a command line tool now installed that can be started with the command "biocache".
-			This tool can be used for loading data and running processes across the data.
-          </p>
+    <div id="includeHeader"></div>
 
-          <h4>Further information</h4>
-          <p>
-          	As part of the installation the following tools are installed:
-          		<ul>
-          			<li><a href="http://cassandra.apache.org/">Apache Cassandra</a></li>
-          		</ul>
-            Cassandra can be accessed directly using the command-line tool
-            <a class="code" href="https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlsh.html">cqlsh</a>.
-          </p>
+    <div class="row">
+        <div class="col-12">
+            <div id="includeNavbar"></div>
         </div>
-        <div id="data-registry" class="col-md-4">
-          <h2>Data Registry Admin</h2>
-      		<ul>
-				<li><a href="https://collectory.vtatlasoflife.org">Collections browser</a></li>
-                <li><a href="https://collectory.vtatlasoflife.org/datasets">Datasets browser</a></li>
-				<li><a href="https://collectory.vtatlasoflife.org/ws">Web services</a></li>
-				<li><a href="https://collectory.vtatlasoflife.org/admin">Admin interface</a></li>
-			</ul>
-          <h2>BIE Index Admin</h2>
-      		<ul>
-				<li><a href="bie-ws.vtatlasoflife.org/admin">BIE Admin</a></li>
-			</ul>
-          <h4>Further information</h4>
-       </div>
-        <div id="skinning" class="col-md-4">
-          <h2>Bootstrap 3</h2>
-          <p>
-              The applications use Bootstrap 3 for layout and styling.
-              For more information on Bootstrap see the documentation.
-              The location of the CSS/JS bootstrap files is
-              <span class="code">/srv/living-atlas.org/www/ </span>
-               on this machine. <p>
-          </p>
-          <h2>Styling these apps</h2>
-          <p>
-              These applications are use a banner, footer and head html block that you can customise.
-          <ul>
-            <li><a class="code" href="https://vtatlasoflife.org/banner.html">banner.html</a> - the top section added to all pages. Typically a navigation menu</li>
-            <li><a class="code" href="https://vtatlasoflife.org/footer.html">footer.html</a> - the bottom section added to all pages. Typically a navigation menu</li>
-            <li><a class="code" href="https://vtatlasoflife.org/head.html">head.html</a> - a block of html that is added to the <span class="code">&lt;head/&gt;</span> section added to all pages.  This could include references to custom CSS.</li>
-          </ul>
-            <p> The location of these files is <span class="code">/srv/living-atlas.org/www/</span> on this machine. <p>
-        </div>
-      </div>
-      <div class="row">
-        <div id="name-indexes" class="col-md-4">
-              <h2>Name indexes</h2>
-              <p>
-                  Lucene name indexes have been installed in the
-                  <span class="code">/data/lucene</span> directory.
-                  Use the <span class="code">nameindexer</span> tool
-                  and your own DwCA to generate a new index. See
-                  <a href="https://github.com/AtlasOfLivingAustralia/ala-name-matching">here</a>
-                  for more details on the structure of the DwCA required.
-              </p>
-          </div>
-      </div>
+    </div> <!-- row -->
 
-      <footer>
-      </footer>
-    </div> <!-- /container -->
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-3">
+				<h4>Sub-domain Admin</h4>
+				<ul>
+					<li><a href="https://bie-ws.vtatlasoflife.org/admin">Bie-ws Admin</a></li>
+					<li><a href="https://lists.vtatlasoflife.org/admin">Species List Admin</a></li>
+					<li><a href="https://biocache.vtatlasoflife.org/admin">Biocache Admin</a></li>
+					<li><a href="https://collectory.vtatlasoflife.org/admin">Collectory Admin</a></li>
+				</ul>
+			</div>
+      <div class="col-md-3">
+        <h4>Collectory</h4>
+    		<ul>
+					<li><a href="https://collectory.vtatlasoflife.org">Collections browser</a></li>
+	        <li><a href="https://collectory.vtatlasoflife.org/datasets">Datasets browser</a></li>
+					<li><a href="https://collectory.vtatlasoflife.org/ws">Web services</a></li>
+					<li><a href="https://collectory.vtatlasoflife.org/admin">Collectory Admin</a></li>
+				</ul>
+			</div>
+		</div> <!-- row -->
+	</div>
 </body>
 </html>

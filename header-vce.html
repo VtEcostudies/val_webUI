@@ -3,20 +3,22 @@
 <head>
 	<link type="text/css" href="css/bootstrap.css">
 	<link type="text/css" href="css/bootstrap-theme.css">
-    <link type="text/css" href="css/ala-styles.css">
-    <link type="text/css" href="val_www/css/vce-styles.css">
-    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link type="text/css" href="css/ala-styles.css">
+  <link type="text/css" href="val_www/css/vce-styles.css">
+  <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <script src="js/bootstrap.js"></script>
-        <script src="js/vce_custom.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
+  <script src="js/vce_custom.js" type="text/javascript"></script>
+	<script>console.log('header-vce.html header');</script>
+
 </head>
 
 <body>
 
     <div class="row vceHeader">
         <div class="col-md-3">
-            <a href="https://val.vtecostudies.org"><img src="/val_www/leaflet/img/val_logo_medium.png"/></a>
-        </div> <!-- col --> 
+            <a href="https://val.vtecostudies.org"><img src="val_www/img/val_logo_medium.png"/></a>
+        </div> <!-- col -->
         <div class="col-md-4">
             <input id="bie_search" type="Search" placeholder="Search the Vermont Atlas of Life" class="form-control">
             </input>
@@ -34,5 +36,10 @@
     </div>
     <!-- end atlas stats -->
 
+		<script>
+			console.log('header-vce.html body');
+			loadXMLDoc();
+		</script>
+		
 </body>
 </html>
