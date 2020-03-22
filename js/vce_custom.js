@@ -30,10 +30,14 @@ function loadStats() {
                 if (elemOccurrn) {
                   elemOccurrn.style="font-size:8pt";
                   elemOccurrn.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
+                } else {
+                  console.log('HTML element id="vt_occurrences" NOT found.')
                 }
                 if (elemSpecies) {
                   elemSpecies.style="font-size:8pt";
                   elemSpecies.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
+                } else {
+                  console.log('HTML element id="vt_species" NOT found.')
                 }
             }
             document.dispatchEvent(endEvent);
