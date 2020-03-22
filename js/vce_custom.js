@@ -19,8 +19,16 @@ function loadStats() {
             if (xmlhttp.status == 200) {
                 stats = JSON.parse(xmlhttp.responseText);
                 console.log('bioache-service/explore/groups result:'); console.dir(stats);
-                if (elemOccurrn) elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
-                if (elemSpecies) elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
+                if (elemOccurrn) {
+                  elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
+                } else {
+                  console.log('HTML element id="vt_occurrences" NOT found.')
+                }
+                if (elemSpecies) {
+                  elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
+                } else {
+                  console.log('HTML element id="vt_species" NOT found.')
+                }
             }/*
             else if (xmlhttp.status == 400) {
                alert(`An http 400 error was returned from ${reqHost}.`);
