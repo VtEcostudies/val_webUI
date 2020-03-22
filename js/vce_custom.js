@@ -1,21 +1,10 @@
 var begEvent = new Event('xhttpBeg');
 var endEvent = new Event('xhttpEnd');
+var xhrTimeout = 10000;
+var stats = [];
+var datas = [];
 
-var slideIndex = 0;
-
-function showSlides() {
-    var i;
-    var slides = window.document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1;}
-    slides[slideIndex-1].style.display = "block";
-    //setTimeout(showSlides, 5000); // Change image every n/1000 seconds
-}
-
-function loadXMLDoc() {
+function loadStats() {
     var xmlhttp = new XMLHttpRequest();
     var reqHost = "https://biocache-ws.vtatlasoflife.org"; //window.location.origin; //"http://vtatlasoflife.org";
     var reqRoute = "/explore/groups";
@@ -23,7 +12,7 @@ function loadXMLDoc() {
     var elemOccurrn = document.getElementById("vt_occurrences");
     var elemSpecies = document.getElementById("vt_species");
 
-    if (reqHost == "http://localhost") {reqHost = "http://beta.vtatlasoflife.org";}
+    //if (reqHost == "http://localhost") {reqHost = "http://beta.vtatlasoflife.org";}
 
     document.dispatchEvent(begEvent);
 
@@ -32,59 +21,94 @@ function loadXMLDoc() {
             if (xmlhttp.status == 200) {
                 var resJson = JSON.parse(xmlhttp.responseText);
                 //console.log('bioache-service/explore/groups result:'); console.dir(resJson);
-                elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
-                elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
+                if (elemOccurrn) elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
+                if (elemSpecies) elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }/*
             else if (xmlhttp.status == 400) {
                alert(`An http 400 error was returned from ${reqHost}.`);
             }*/
             else {
-                //alert(`An http ${xmlhttp.status} result was returned from ${reqHost}.`);
-                elemOccurrn.style="font-size:8pt";
-                elemSpecies.style="font-size:8pt";
-                elemOccurrn.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
-                elemSpecies.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
+                console.log(`An http ${xmlhttp.status} result was returned from ${reqHost}.`);
+                if (elemOccurrn) {
+                  elemOccurrn.style="font-size:8pt";
+                  elemOccurrn.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
+                }
+                if (elemSpecies) {
+                  elemSpecies.style="font-size:8pt";
+                  elemSpecies.innerHTML = `(http ${xmlhttp.status} from ${reqHost+reqRoute})`;
+                }
             }
             document.dispatchEvent(endEvent);
         }
     };
 
-    //console.log('AJAX GET request:', reqHost+reqRoute+reqQuery);
+    console.log('AJAX GET request:', reqHost+reqRoute);
 
     xmlhttp.open("GET", reqHost+reqRoute+reqQuery, true);
+    //xmlhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xmlhttp.setRequestHeader("Accept", "*/*");
+    //xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+    xmlhttp.timeout = xhrTimeout; // Set timeout to 10 seconds
+    xmlhttp.ontimeout = function () { console.log(`AJAX GET request ${reqHost+reqRoute} timed out (${xhrTimeout/1000} seconds).`); }
+    xmlhttp.async = true;
     xmlhttp.send();
 }
 
+function loadDatasets() {
+  datas = [];
+}
+
+/*
+  Navigate to BIE Search page with the search value from html elment bie_search
+*/
 function searchBIE() {
 	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
+}
+
+/*
+  Navigate to Occurrence Search page with the search value from html elment occ_search
+*/
+function searchOcc() {
+	window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + document.getElementById("occ_search").value);
 }
 
 window.onload = function() {
 
     console.log('window.onload()');
 
+    //page reloads (F5) don't get xhttpBeg event - set loading class onload...
+    if (document.getElementById("modal_vce_loading")) {
+      var d = document.getElementById("modal_vce_loading");
+      if (d) d.className = "vce_modal vce_loading";
+    }
+
     document.addEventListener("xhttpBeg", function() {
+      if (document.getElementById("modal_vce_loading")) {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal vce_loading";
         console.log(`got xhttpBeg: ${d.className}`);
+      }
     });
 
     document.addEventListener("xhttpEnd", function() {
+      if (document.getElementById("modal_vce_loading")) {
         var d = document.getElementById("modal_vce_loading");
         if (d) d.className = "vce_modal";
         console.log(`got xhttpEnd: ${d.className}`);
+      }
     });
-
-    if (document.getElementById("slideRow")) {
-        document.getElementById("slideRow").addEventListener("click", function() {
-            showSlides();
-        });
-        showSlides();
-    }
 };
 
+/*
+  Add listeners to activate search results on Enter key.
+
+  TODO: Make this work in a more generalized manner, ie.
+  for Enter, Tab, and on button press.
+
+*/
 function addHeaderListeners() {
-  
+
       if (document.getElementById("bie_search")) {
           document.getElementById("bie_search").addEventListener("keypress", function(e) {
               if(e.which == 13){
@@ -93,4 +117,20 @@ function addHeaderListeners() {
           });
       }
 
-}
+      if (document.getElementById("bie_search_button")) {
+          document.getElementById("bie_search_button").addEventListener("click", function(e) {
+                searchBIE();
+          });
+      }
+
+      if (document.getElementById("occ_search")) {
+          document.getElementById("occ_search").addEventListener("keypress", function(e) {
+              if(e.which == 13){
+                  searchOcc();
+              }
+          });
+      }
+  }
+
+loadStats();
+loadDatasets();
