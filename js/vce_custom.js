@@ -117,7 +117,7 @@ window.onload = function() {
   for Enter, Tab, and on button press.
 
 */
-function addHeaderListeners() {
+function addListeners() {
 
       if (document.getElementById("bie_search")) {
           document.getElementById("bie_search").addEventListener("keypress", function(e) {
@@ -142,5 +142,6 @@ function addHeaderListeners() {
       }
   }
 
+addListeners();
 loadStats();
 loadDatasets();
