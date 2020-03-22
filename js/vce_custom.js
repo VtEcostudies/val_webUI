@@ -121,6 +121,7 @@ function addListeners() {
 
       if (document.getElementById("bie_search")) {
           document.getElementById("bie_search").addEventListener("keypress", function(e) {
+              console.log('bie_search got keypress', e);
               if(e.which == 13){
                   searchBIE();
               }
@@ -129,12 +130,14 @@ function addListeners() {
 
       if (document.getElementById("bie_search_button")) {
           document.getElementById("bie_search_button").addEventListener("click", function(e) {
-                searchBIE();
+              console.log('bie_search_button got click', e);
+              searchBIE();
           });
       }
 
       if (document.getElementById("occ_search")) {
           document.getElementById("occ_search").addEventListener("keypress", function(e) {
+              console.log('occ_search got keypress', e);
               if(e.which == 13){
                   searchOcc();
               }
