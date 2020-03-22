@@ -20,12 +20,12 @@ function loadStats() {
                 stats = JSON.parse(xmlhttp.responseText);
                 console.log('bioache-service/explore/groups result:'); console.dir(stats);
                 if (elemOccurrn) {
-                  elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
+                  elemOccurrn.innerHTML = numeral(stats[0].count).format('0,0');
                 } else {
                   console.log('HTML element id="vt_occurrences" NOT found.')
                 }
                 if (elemSpecies) {
-                  elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
+                  elemSpecies.innerHTML = numeral(stats[0].speciesCount).format('0,0');
                 } else {
                   console.log('HTML element id="vt_species" NOT found.')
                 }
