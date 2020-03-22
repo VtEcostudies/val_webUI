@@ -12,15 +12,13 @@ function loadStats() {
     var elemOccurrn = document.getElementById("vt_occurrences");
     var elemSpecies = document.getElementById("vt_species");
 
-    //if (reqHost == "http://localhost") {reqHost = "http://beta.vtatlasoflife.org";}
-
     document.dispatchEvent(begEvent);
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
-                var resJson = JSON.parse(xmlhttp.responseText);
-                //console.log('bioache-service/explore/groups result:'); console.dir(resJson);
+                stats = JSON.parse(xmlhttp.responseText);
+                console.log('bioache-service/explore/groups result:'); console.dir(stats);
                 if (elemOccurrn) elemOccurrn.innerHTML = numeral(resJson[0].count).format('0,0');
                 if (elemSpecies) elemSpecies.innerHTML = numeral(resJson[0].speciesCount).format('0,0');
             }/*
@@ -50,7 +48,7 @@ function loadStats() {
     //xmlhttp.setRequestHeader("Accept", "*/*");
     //xmlhttp.setRequestHeader("Cache-Control", "no-cache");
     xmlhttp.timeout = xhrTimeout; // Set timeout to 10 seconds
-    xmlhttp.ontimeout = function () { console.log(`AJAX GET request ${reqHost+reqRoute} timed out (${xhrTimeout/1000} seconds).`); }
+    xmlhttp.ontimeout = function () { console.log(`AJAX GET request ${reqHost+reqRoute} timed out. (${xhrTimeout/1000} seconds).`); }
     xmlhttp.async = true;
     xmlhttp.send();
 }
