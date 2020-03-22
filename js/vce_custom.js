@@ -73,8 +73,10 @@ function loadDatasets() {
   Navigate to BIE Search page with the search value from html elment bie_search
 */
 function searchBIE() {
-  alert('searchBIE()');
-	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
+  var search_value = document.getElementById("bie_search").value;
+  //alert(`searchBIE(${search_value})`);
+  console.log(`searchBIE(${search_value})`);
+	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
 }
 
 /*
