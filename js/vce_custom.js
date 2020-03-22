@@ -73,6 +73,7 @@ function loadDatasets() {
   Navigate to BIE Search page with the search value from html elment bie_search
 */
 function searchBIE() {
+  alert('searchBIE()');
 	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + document.getElementById("bie_search").value);
 }
 
@@ -80,6 +81,7 @@ function searchBIE() {
   Navigate to Occurrence Search page with the search value from html elment occ_search
 */
 function searchOcc() {
+  alert('searchOcc()');
 	window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + document.getElementById("occ_search").value);
 }
 
@@ -121,7 +123,7 @@ function addListeners() {
 
       if (document.getElementById("bie_search")) {
           document.getElementById("bie_search").addEventListener("keypress", function(e) {
-              console.log('bie_search got keypress', e);
+              //console.log('bie_search got keypress', e);
               if(e.which == 13){
                   searchBIE();
               }
@@ -130,14 +132,14 @@ function addListeners() {
 
       if (document.getElementById("bie_search_button")) {
           document.getElementById("bie_search_button").addEventListener("click", function(e) {
-              console.log('bie_search_button got click', e);
+              //console.log('bie_search_button got click', e);
               searchBIE();
           });
       }
 
       if (document.getElementById("occ_search")) {
           document.getElementById("occ_search").addEventListener("keypress", function(e) {
-              console.log('occ_search got keypress', e);
+              //console.log('occ_search got keypress', e);
               if(e.which == 13){
                   searchOcc();
               }
