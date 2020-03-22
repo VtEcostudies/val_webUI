@@ -74,8 +74,8 @@ function loadDatasets() {
 */
 function searchBIE() {
   var search_value = document.getElementById("bie_search").value;
-  //alert(`searchBIE(${search_value})`);
-  console.log(`searchBIE(${search_value})`);
+  alert(`searchBIE(${search_value})`);
+  //console.log(`searchBIE(${search_value})`);
 	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
 }
 
