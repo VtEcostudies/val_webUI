@@ -74,8 +74,8 @@ function loadDatasets() {
 */
 function searchBIE() {
   var search_value = document.getElementById("bie_search").value;
-  alert(`searchBIE(${search_value})`);
-  //console.log(`searchBIE(${search_value})`);
+  //alert(`searchBIE(${search_value})`);
+  console.log(`searchBIE(${search_value})`);
 	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
 }
 
@@ -133,9 +133,9 @@ function addListeners() {
       }
 
       if (document.getElementById("bie_search_button")) {
-          document.getElementById("bie_search_button").addEventListener("click", function(e) {
-              //console.log('bie_search_button got click', e);
-              searchBIE();
+          document.getElementById("bie_search_button").addEventListener("mouseup", function(e) {
+              console.log('bie_search_button got mouseup', e);
+              //searchBIE();
           });
       }
 
