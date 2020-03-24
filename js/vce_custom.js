@@ -134,8 +134,8 @@ function addListeners() {
 
       if (document.getElementById("bie_search_button")) {
           document.getElementById("bie_search_button").addEventListener("mouseup", function(e) {
-              console.log('bie_search_button got mouseup', e);
-              //searchBIE();
+              //console.log('bie_search_button got mouseup', e);
+              searchBIE();
           });
       }
 
