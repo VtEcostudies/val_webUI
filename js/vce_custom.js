@@ -76,15 +76,18 @@ function searchBIE() {
   var search_value = document.getElementById("bie_search").value;
   //alert(`searchBIE(${search_value})`);
   console.log(`searchBIE(${search_value})`);
-	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
+	//window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
+  //jtl hack-in an occ search here for testing...
+  window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + search_value);
 }
 
 /*
   Navigate to Occurrence Search page with the search value from html elment occ_search
 */
 function searchOcc() {
-  alert('searchOcc()');
-	window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + document.getElementById("occ_search").value);
+  var search_value = document.getElementById("occ_search").value;
+  console.log(`searchOcc(${search_value})`);
+	window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + search_value);
 }
 
 window.onload = function() {
@@ -145,6 +148,13 @@ function addListeners() {
               if(e.which == 13){
                   searchOcc();
               }
+          });
+      }
+
+      if (document.getElementById("occ_search_button")) {
+          document.getElementById("occ_search_button").addEventListener("mouseup", function(e) {
+              //console.log('occ_search_button got mouseup', e);
+              searchOcc();
           });
       }
   }
