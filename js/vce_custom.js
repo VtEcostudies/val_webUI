@@ -18,7 +18,7 @@ function loadStats() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
             if (xmlhttp.status == 200) {
                 stats = JSON.parse(xmlhttp.responseText);
-                console.log(`${reqHost+reqRoute} occurrences: ${stats[0].count}, species: ${stats[0].speciesCount}`); 
+                console.log(`${reqHost+reqRoute} occurrences: ${stats[0].count}, species: ${stats[0].speciesCount}`);
                 //console.dir(stats);
                 if (elemOccurrn) {
                   elemOccurrn.innerHTML = numeral(stats[0].count).format('0,0');
@@ -111,9 +111,7 @@ function searchBIE() {
   var search_value = document.getElementById("bie_search").value;
   //alert(`searchBIE(${search_value})`);
   console.log(`searchBIE(${search_value})`);
-	//window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
-  //jtl hack-in an occ search here for testing...
-  window.location.assign("https://biocache.vtatlasoflife.org/occurrences/search?q=" + search_value);
+	window.location.assign("https://bie.vtatlasoflife.org/search?q=" + search_value);
 }
 
 /*
