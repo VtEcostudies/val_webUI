@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		
+		<meta charset="UTF-8">
+
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="css/header-vtatlasoflife-all.css">
+
+		<script src="https://kit.fontawesome.com/f353855844.js" crossorigin="anonymous"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			// toggle menu visibility on small screens
+			jQuery(document).ready(function ($) {
+			  $(".mobile-menu-toggle").on("click", function () {
+			    $( this ).toggleClass( "active" );
+			    $("header .menus").slideToggle("fast");  
+			  });
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<header class="vtatlasoflife" role="banner">
+
+			<div class="header-content">
+
+				<a id="logo" href="http://val.vtecostudies.org">
+					Vermont Atlas of Life: Vermont Center for Ecostudies
+				</a>
+
+				<div class="mobile-menu-toggle">
+					<i class="fas fa-bars"></i>
+				</div>
+
+				<div class="menus">
+
+					<nav class="primary" aria-label="primary navigation 1">
+						<ul>
+							<li><a href="http://val.vtecostudies.org/explore/">Data Explorer</a></li>
+							<li><a href="http://val.vtecostudies.org/projects/">Projects</a></li>
+							<li><a href="http://val.vtecostudies.org/news/">News</a></li>
+							<li><a href="http://val.vtecostudies.org/events/">Events</a></li>
+						</ul>
+					</nav>
+
+					<nav class="secondary" aria-label="primary navigation 2">
+						<ul>
+							<li><a href="http://val.vtecostudies.org/help/">Help</a></li>
+							<li><a href="http://val.vtecostudies.org/about/">About</a></li>
+							<li class="nav-donate"><a href="http://val.vtecostudies.org/give/"><span>Donate</span></a></li>
+							<li class="nav-vce-link"><a href="https://vtecostudies.org">VCE Website »</a></li>
+						</ul>
+					</nav>
+
+				</div>
+
+			</div>
+
+		</header>
+
+	</body>
+
+</html>
